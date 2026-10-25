@@ -1,0 +1,258 @@
+
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#171714">
+<title>NOIR — ресторан сучасної кухні</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#171714;--panel:#22221c;--cream:#f2eee5;--muted:#b5b0a4;--gold:#d8b878;--line:rgba(242,238,229,.16);--serif:"Playfair Display",Georgia,serif;--sans:"DM Sans",Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--cream);font-family:var(--sans);line-height:1.65}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit}
+.wrap{width:min(1160px,calc(100% - 44px));margin:auto}
+.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:.22em;font-size:.72rem;font-weight:700}
+.topline{text-align:center;padding:9px 12px;border-bottom:1px solid var(--line);font-size:.65rem;letter-spacing:.15em;color:var(--muted);text-transform:uppercase}
+header{position:sticky;top:0;z-index:10;background:rgba(23,23,20,.93);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.2em}
+.mark{border:1px solid var(--gold);color:var(--gold);width:34px;height:34px;display:grid;place-items:center;font:1.3rem var(--serif);transform:rotate(45deg)}
+.mark span{transform:rotate(-45deg)}
+.links{display:flex;align-items:center;gap:28px;font-size:.83rem}
+.links a:hover{color:var(--gold)}
+.cta,.btn{display:inline-block;border:1px solid var(--gold);padding:12px 18px;color:var(--gold);font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;transition:.2s}
+.cta:hover,.btn:hover{background:var(--gold);color:#171714}
+.btn.fill{background:var(--gold);color:#171714}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;padding:78px 0 90px;min-height:650px}
+.hero h1{font:400 clamp(3.6rem,7vw,6.4rem)/.99 var(--serif);letter-spacing:-.045em;margin:22px 0}
+.hero h1 em{color:var(--gold);font-weight:400}
+.hero p{max-width:475px;color:var(--muted)}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.note{display:flex;align-items:center;gap:15px;color:var(--muted);font-size:.78rem;margin-top:48px}
+.note:before{content:"";width:40px;height:1px;background:var(--gold)}
+.hero-image{min-height:510px;position:relative;background:linear-gradient(0deg,rgba(0,0,0,.2),transparent),url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=85") center/cover}
+.hero-image:after{content:"";position:absolute;inset:16px -15px -15px 16px;border:1px solid var(--gold);pointer-events:none}
+.floating{position:absolute;z-index:1;bottom:-15px;left:-15px;background:var(--gold);color:#171714;padding:17px 22px}
+.floating strong{display:block;font:1.5rem var(--serif)}
+.floating span{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em}
+.ticker{border-block:1px solid var(--line);padding:17px 0;display:flex;justify-content:space-around;gap:20px;flex-wrap:wrap;color:var(--gold);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase}
+section{scroll-margin-top:95px}
+.section{padding:100px 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:38px}
+.head h2,.story h2,.booking h2{font:400 clamp(2.6rem,5vw,4.3rem)/1.08 var(--serif);margin-top:13px}
+.head p{max-width:360px;color:var(--muted);font-size:.88rem}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--panel);border:1px solid var(--line);transition:.25s}
+.card:hover{transform:translateY(-5px);border-color:var(--gold)}
+.dish-img{height:235px;background-position:center;background-size:cover}
+.card:nth-child(1) .dish-img{background-image:url("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80")}
+.card:nth-child(2) .dish-img{background-image:url("https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=900&q=80")}
+.card:nth-child(3) .dish-img{background-image:url("https://images.unsplash.com/photo-1551024506-0cc2c7f4c9a4?auto=format&fit=crop&w=900&q=80")}
+.dish-info{padding:23px}
+.dish-top{display:flex;justify-content:space-between;gap:12px}
+.dish-top h3,.experience h3{font:400 1.45rem var(--serif)}
+.price{color:var(--gold);white-space:nowrap;font-size:.85rem}
+.dish-info p,.experience p{color:var(--muted);font-size:.83rem;margin-top:12px}
+.tag{display:inline-block;color:var(--gold);border:1px solid rgba(216,184,120,.4);padding:4px 8px;margin-top:17px;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase}
+.story{background:#1e1e19;padding:90px 0;display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
+.story-image{min-height:470px;background:url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1100&q=85") center/cover;position:relative}
+.story-image:after{content:"";position:absolute;inset:15px -15px -15px 15px;border:1px solid var(--gold)}
+.story h2{margin:17px 0 24px}
+.story p{color:var(--muted);margin-bottom:16px}
+.stats{display:flex;gap:30px;border-top:1px solid var(--line);padding-top:22px;margin-top:28px}
+.stat strong{display:block;color:var(--gold);font:2rem var(--serif)}
+.stat span{font-size:.7rem;color:var(--muted)}
+.experience{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.experience article{border-top:1px solid var(--gold);padding-top:20px}
+.num{color:var(--gold);font-size:.7rem;letter-spacing:.14em}
+.experience h3{margin-top:14px}
+.booking{background:var(--gold);color:#171714;padding:80px 0}
+.booking-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:55px;align-items:center}
+.booking .eyebrow{color:#59482b}
+.booking h2{margin:15px 0 18px}
+.booking-copy p{color:#554a35;max-width:390px}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form label{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.form input,.form select{width:100%;padding:13px;border:1px solid rgba(23,23,20,.35);background:rgba(255,255,255,.25);color:#171714;outline:none}
+.form .full,#message{grid-column:1/-1}
+.form button{padding:15px;background:#171714;color:var(--cream);border:1px solid #171714;text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;cursor:pointer}
+.form button:hover{background:transparent;color:#171714}
+#message{font-size:.82rem;min-height:1.3em}
+footer{padding:50px 0 22px}
+.footer-main{display:flex;justify-content:space-between;gap:35px;padding-bottom:35px;border-bottom:1px solid var(--line)}
+.footer-brand p{color:var(--muted);max-width:260px;font-size:.83rem;margin-top:13px}
+.footer-info{display:flex;gap:48px}
+.footer-info h4{font-size:.68rem;color:var(--gold);letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+.footer-info p,.footer-info a{display:block;color:var(--muted);font-size:.8rem;margin:4px 0}
+.copyright{display:flex;justify-content:space-between;gap:15px;padding-top:18px;color:#858176;font-size:.68rem}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}
+.reveal.show{opacity:1;transform:none}
+@media(max-width:800px){
+.links{gap:13px}.links a:not(.cta){display:none}
+.hero{grid-template-columns:1fr;padding:55px 0 75px;gap:40px}
+.hero-image{min-height:430px;margin-right:12px}
+.cards{grid-template-columns:1fr 1fr}.card:last-child{grid-column:1/-1}
+.story{grid-template-columns:1fr;gap:40px}
+.story-image{min-height:380px;margin-right:12px}
+.booking-grid{grid-template-columns:1fr;gap:32px}
+}
+@media(max-width:540px){
+.wrap{width:calc(100% - 32px)}
+.topline{font-size:.55rem}
+.nav{height:68px}
+.cta{padding:10px 11px;font-size:.63rem}
+.hero{padding-top:50px}
+.hero h1{font-size:3.5rem}
+.hero-image{min-height:340px}
+.section{padding:72px 0}
+.head{display:block}.head p{margin-top:16px}
+.cards,.experience{grid-template-columns:1fr}
+.card:last-child{grid-column:auto}
+.dish-img{height:230px}
+.story{padding:70px 0}
+.stats{gap:20px}.stat strong{font-size:1.6rem}
+.booking{padding:65px 0}
+.form{grid-template-columns:1fr}
+.form .full,#message{grid-column:auto}
+.footer-main,.footer-info{flex-direction:column;gap:25px}
+.copyright{flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){
+html{scroll-behavior:auto}
+.reveal{opacity:1;transform:none}
+*{transition:none!important}
+}
+</style>
+</head>
+<body>
+<div class="topline">Авторська кухня · сезонні продукти · особливі вечори</div>
+<header><div class="wrap nav">
+<a class="brand" href="#home"><span class="mark"><span>N</span></span><span>NOIR</span></a>
+<nav class="links" aria-label="Навігація">
+<a href="#menu">Меню</a>
+<a href="#story">Наша історія</a>
+<a href="#experience">Атмосфера</a>
+<a class="cta" href="#booking">Забронювати ↗</a>
+</nav>
+</div></header>
+<main>
+<section class="wrap hero" id="home">
+<div class="reveal">
+<div class="eyebrow">Ресторан сучасної кухні · з 2018 року</div>
+<h1>Смак, що<br>залишається <em>з тобою.</em></h1>
+<p>Місце, де сезонні інгредієнти зустрічаються з авторським баченням, а звичайна вечеря перетворюється на маленьку подію.</p>
+<div class="actions">
+<a class="btn fill" href="#menu">Відкрити меню ↗</a>
+<a class="btn" href="#story">Відчути NOIR</a>
+</div>
+<div class="note">Твій вечір. Наше мистецтво.</div>
+</div>
+<div class="hero-image reveal" role="img" aria-label="Елегантний ресторан">
+<div class="floating"><strong>З любов’ю</strong><span>до кожної деталі</span></div>
+</div>
+</section>
+<div class="ticker"><span>Сезонні продукти ✦</span><span>Авторський підхід ✦</span><span>Тепла атмосфера ✦</span><span>Смак без компромісів</span></div>
+<section class="wrap section" id="menu">
+<div class="head reveal">
+<div><div class="eyebrow">Обране від шефа</div><h2>Меню з характером.</h2></div>
+<p>Ми не намагаємося вразити кількістю. Ми шукаємо ідеальний баланс смаку, текстури й настрою.</p>
+</div>
+<div class="cards">
+<article class="card reveal">
+<div class="dish-img" role="img" aria-label="Сезонна страва"></div>
+<div class="dish-info"><div class="dish-top"><h3>Сад на тарілці</h3><span class="price">₴ 285</span></div><p>Запечені сезонні овочі, крем із цвітної капусти, трав’яна олія та хрустке насіння.</p><span class="tag">Сезонне меню</span></div>
+</article>
+<article class="card reveal">
+<div class="dish-img" role="img" aria-label="Паста із зеленню"></div>
+<div class="dish-info"><div class="dish-top"><h3>Паста al dente</h3><span class="price">₴ 340</span></div><p>Домашня паста, ніжний соус, ароматні трави й пармезан із витриманим смаком.</p><span class="tag">Вибір гостей</span></div>
+</article>
+<article class="card reveal">
+<div class="dish-img" role="img" aria-label="Авторський десерт"></div>
+<div class="dish-info"><div class="dish-top"><h3>Тиха спокуса</h3><span class="price">₴ 195</span></div><p>Шоколадний десерт із ягідним акцентом, легкою текстурою та дрібкою морської солі.</p><span class="tag">Солодкий фінал</span></div>
+</article>
+</div>
+</section>
+<section class="story" id="story">
+<div class="wrap story-image reveal" role="img" aria-label="Затишний інтер'єр ресторану"></div>
+<div class="wrap reveal">
+<div class="eyebrow">Більше, ніж вечеря</div>
+<h2>У кожної деталі є своя історія.</h2>
+<p>NOIR народився з простої ідеї: хороша їжа не потребує зайвого шуму. Потрібні якісні продукти, сміливі ідеї та люди, яким не байдуже.</p>
+<p>Ми працюємо з локальними постачальниками, змінюємо меню за сезонами й залишаємо простір для несподіваних поєднань.</p>
+<div class="stats">
+<div class="stat"><strong>2018</strong><span>рік заснування</span></div>
+<div class="stat"><strong>100%</strong><span>уваги до деталей</span></div>
+<div class="stat"><strong>1</strong><span>особливий вечір</span></div>
+</div>
+</div>
+</section>
+<section class="wrap section" id="experience">
+<div class="head reveal">
+<div><div class="eyebrow">Твій момент</div><h2>Атмосфера — теж інгредієнт.</h2></div>
+<p>Для зустрічі, яку давно планували. Для маленького свята. Або просто для себе.</p>
+</div>
+<div class="experience">
+<article class="reveal"><span class="num">01 / ПРОСТІР</span><h3>Тепло без зайвого</h3><p>М’яке світло, природні фактури та музика, яка створює настрій, але не заважає розмові.</p></article>
+<article class="reveal"><span class="num">02 / КУХНЯ</span><h3>Сміливі поєднання</h3><p>Знайомі смаки в новому прочитанні — чесно, сезонно й з повагою до продукту.</p></article>
+<article class="reveal"><span class="num">03 / СЕРВІС</span><h3>Усе на своєму місці</h3><p>Уважність до деталей, щирі рекомендації та відчуття, що на тебе справді чекали.</p></article>
+</div>
+</section>
+<section class="booking" id="booking">
+<div class="wrap booking-grid">
+<div class="booking-copy reveal">
+<div class="eyebrow">Зустрінемось у NOIR</div>
+<h2>Збережи місце для хорошого вечора.</h2>
+<p>Це демонстраційна форма портфоліо: після заповнення вона покаже підтвердження на екрані, але не створить реальне бронювання.</p>
+</div>
+<form class="form reveal" id="booking-form">
+<div><label for="name">Твоє ім’я</label><input id="name" name="name" placeholder="Як до тебе звертатися?" required></div>
+<div><label for="guests">Кількість гостей</label><select id="guests" name="guests"><option>2 гості</option><option>1 гість</option><option>3 гості</option><option>4 гості</option><option>5+ гостей</option></select></div>
+<div><label for="date">Дата</label><input type="date" id="date" name="date" required></div>
+<div><label for="time">Час</label><select id="time" name="time"><option>17:00</option><option>17:30</option><option>18:00</option><option>18:30</option><option>19:00</option><option>19:30</option><option>20:00</option><option>20:30</option><option>21:00</option></select></div>
+<button class="full" type="submit">Створити запит на бронювання ↗</button>
+<p id="message" role="status" aria-live="polite"></p>
+</form>
+</div>
+</section>
+</main>
+<footer><div class="wrap">
+<div class="footer-main">
+<div class="footer-brand"><a class="brand" href="#home"><span class="mark"><span>N</span></span><span>NOIR</span></a><p>Авторська кухня для моментів, які хочеться запам’ятати.</p></div>
+<div class="footer-info">
+<div><h4>Завітай</h4><p>Центр міста</p><p>Демонстраційна адреса</p></div>
+<div><h4>Години роботи</h4><p>Пн–Нд</p><p>12:00 — 22:00</p></div>
+<div><h4>На зв’язку</h4><a href="#booking">Бронювання</a><a href="#menu">Меню</a><a href="#story">Про NOIR</a></div>
+</div>
+</div>
+<div class="copyright"><span>© 2026 NOIR. Навчальний вебпроєкт.</span><span>Створено з увагою до кожної деталі.</span></div>
+</div></footer>
+<script>
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
+  if(entry.isIntersecting){entry.target.classList.add('show');observer.unobserve(entry.target)}
+}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+const dateInput=document.getElementById('date');
+const now=new Date();
+const today=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().split('T')[0];
+dateInput.min=today;
+document.getElementById('booking-form').addEventListener('submit',event=>{
+  event.preventDefault();
+  const name=document.getElementById('name').value.trim();
+  const date=dateInput.value;
+  const time=document.getElementById('time').value;
+  const guests=document.getElementById('guests').value;
+  const message=document.getElementById('message');
+  if(!name||!date){message.textContent='Заповни, будь ласка, ім’я та дату.';return}
+  const formatted=new Date(date+'T12:00:00').toLocaleDateString('uk-UA',{day:'numeric',month:'long',year:'numeric'});
+  message.textContent=`Дякуємо, ${name}! Демозапит: ${formatted}, ${time}, ${guests}. Реальне бронювання не створено.`;
+  event.target.reset();
+  dateInput.min=today;
+});
+</script>
+</body>
+</html>
